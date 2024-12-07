@@ -1,4 +1,4 @@
-# Python-Intern
+# VRV_Python-Intern
 Assignments - VRV Security
 ### 1. **Requests per IP**
 - This section lists the number of requests made by each IP address.
