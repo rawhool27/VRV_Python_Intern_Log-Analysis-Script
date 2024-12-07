@@ -1,47 +1,52 @@
-# VRV_Python_Intern_Log-Analysis-Script
-This project offers a robust solution for analyzing and extracting insights from server log files using Python. It automates the detection of patterns, suspicious activities, and high-traffic endpoints, making it a vital tool for system administrators and security analysts. Key highlights include:
+# Python-Intern
+Assignments - VRV Security
+### 1. **Requests per IP**
+- This section lists the number of requests made by each IP address.
+  - `IP Address`: The IP address from which the requests originated.
+  - `Request Count`: The total number of requests made by the IP address.
+ 
 
-IP Activity Analysis: Categorizes and ranks IP addresses based on their request frequency.
+### 2. **Most Accessed Endpoint**
+- This section identifies the endpoint (URL or resource path) that was accessed the most number of times.
+  - `Endpoint`: The most frequently accessed resource.
+  - `Access Count`: The number of times this endpoint was accessed.
 
-Endpoint Access Insights: Identifies the most frequently accessed endpoints to optimize resource management.
+### 3. **Suspicious Activity**
+- This section flags IP addresses with suspicious behavior, such as excessive failed login attempts.
+  - `IP Address`: The IP address exhibiting suspicious activity.
+  - `Failed Login Count`: The total number of failed login attempts from the IP address.
 
-Security Monitoring: Detects suspicious activities, such as excessive failed login attempts, for proactive mitigation.
+---
+### [**Log Analysis Results**](https://github.com/Dharunkumar-S/Python-Intern/blob/main/log_analysis_results.csv)
+1. **Count Requests per IP Address**:
+   
+    ```bash
+        IP Address           Request Count
+        192.168.1.1          69
+        203.0.113.5          8
+        198.51.100.23        8
+        10.0.0.2             6
+        192.168.1.100        5
+    ```
 
-Comprehensive Reporting: Outputs structured results into an easy-to-read CSV format for seamless integration with other tools.
+  2. **Identify the Most Frequently Accessed Endpoint**:
 
-This project demonstrates advanced Python skills, utilizing libraries like re, csv, and collections to parse logs efficiently and deliver actionable insights. Ideal for enhancing operational efficiency and strengthening security in real-world applications.
+     ```bash
+        Most Frequently Accessed Endpoint:
+        Endpoint              Access Count
+        /home                 67
+     ```
+  3. **Detect Suspicious Activity**:
 
-1. Requests per IP
-This section lists the number of requests made by each IP address.
-IP Address: The IP address from which the requests originated.
-Request Count: The total number of requests made by the IP address.
-2. Most Accessed Endpoint
-This section identifies the endpoint (URL or resource path) that was accessed the most number of times.
-Endpoint: The most frequently accessed resource.
-Access Count: The number of times this endpoint was accessed.
-3. Suspicious Activity
-This section flags IP addresses with suspicious behavior, such as excessive failed login attempts.
-IP Address: The IP address exhibiting suspicious activity.
-Failed Login Count: The total number of failed login attempts from the IP address.
-Log Analysis Results
-Count Requests per IP Address:
+     ```bash
+        Suspicious Activity Detected:
+        IP Address           Failed Login Attempts
+        ```
+---
 
-    IP Address           Request Count
-    192.168.1.1          69
-    203.0.113.5          8
-    198.51.100.23        8
-    10.0.0.2             6
-    192.168.1.100        5
-Identify the Most Frequently Accessed Endpoint:
+###  [**Log_Analysis.py**](https://github.com/Dharunkumar-S/Python-Intern/blob/main/log_analysis.py)
 
-   Most Frequently Accessed Endpoint:
-   Endpoint              Access Count
-   /home                 67
-Detect Suspicious Activity:
-
-   Suspicious Activity Detected:
-   IP Address           Failed Login Attempts
-Log_Analysis.py
+```python
 import re
 import csv
 from collections import defaultdict, Counter
@@ -135,7 +140,13 @@ def analyze_and_save_results(ip_requests, endpoint_requests, failed_login_attemp
 if __name__ == "__main__":
     ip_requests, endpoint_requests, failed_login_attempts = parse_log(LOG_FILE)
     analyze_and_save_results(ip_requests, endpoint_requests, failed_login_attempts)
-Terminal Output:
+
+```
+
+---
+### **Terminal Output**:
+
+```bash
 Requests per IP Address:
 203.0.113.5          8
 198.51.100.23        8
@@ -150,7 +161,12 @@ Suspicious Activity Detected:
 No suspicious activity detected.
 
 Results saved to log_analysis_results.csv
-Sample.log
+```
+---
+
+### [**Sample.log**](https://github.com/Dharunkumar-S/Python-Intern/blob/main/sample.log)
+
+```bash
 192.168.1.1 - - [03/Dec/2024:10:12:34 +0000] "GET /home HTTP/1.1" 200 512
 203.0.113.5 - - [03/Dec/2024:10:12:35 +0000] "POST /login HTTP/1.1" 401 128 "Invalid credentials"
 10.0.0.2 - - [03/Dec/2024:10:12:36 +0000] "GET /about HTTP/1.1" 200 256
@@ -185,3 +201,4 @@ Sample.log
 198.51.100.23 - - [03/Dec/2024:10:13:05 +0000] "GET /about HTTP/1.1" 200 256
 192.168.1.1 - - [03/Dec/2024:10:13:06 +0000] "GET /home HTTP/1.1" 200 512
 198.51.100.23 - - [03/Dec/2024:10:13:07 +0000] "POST /feedback HTTP/1.1" 200 128
+```
