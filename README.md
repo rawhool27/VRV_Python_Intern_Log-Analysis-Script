@@ -1,4 +1,4 @@
-# Vrv_Python_Intern_Log-Analysis-Script
+# VRV_Python_Intern_Log-Analysis-Script
 This project offers a robust solution for analyzing and extracting insights from server log files using Python. It automates the detection of patterns, suspicious activities, and high-traffic endpoints, making it a vital tool for system administrators and security analysts. Key highlights include:
 
 IP Activity Analysis: Categorizes and ranks IP addresses based on their request frequency.
